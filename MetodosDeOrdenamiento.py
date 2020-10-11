@@ -1,18 +1,27 @@
-from random import sample # Importamos un metodo de la biblioteca random para generar listas aleatorias
+from random import sample 
+# Importamos un metodo de la biblioteca random para generar listas aleatorias
+
 lista = range(100) # Creamos la lista base con números del 1 al 100
 
-vectorbs = sample(lista,5) # Creamos una lista aleatoria con la func sample (contiene 5 elementos aleatorios de la lista base)
-vectorselect = sample(lista,10) # Creamos una lista aleatoria con la func sample (contiene 10 elementos aleatorios de la lista base)
-vectorins = sample(lista,15) # Creamos una lista aleatoria con la func sample (contiene 15 elementos aleatorios de la lista base)
-vectorshell = sample(lista,20) # Creamos una lista aleatoria con la func sample (contiene 20 elementos aleatorios de la lista base)
+# Creamos una lista aleatoria de largo 8 para cada Ordenamiento
+vectorbs = sample(lista,8) 
+vectorselect = sample(lista,8)
+vectorins = sample(lista,8) 
+vectorshell = sample(lista,8)
+vectormerge = sample(lista,8)
+vectorquick = sample(lista,8)
+vectorheap = sample(lista,8)
 
 
 
 def bubblesort(vectorbs):
-    """Esta función ordenara el vector que le pases como argumento con el metodo de Bubble Sort"""
+    """Esta función ordenara el vector que le pases como argumento
+    con el metodo de Bubble Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
-    print("El vector a ordenar es: ",vectorbs)
+    print("----------------------------------------------------------------------")
+    print("El vector a ordenar con bubble es:",vectorbs)
+    
     n = 0 # Establecemos un contador del largo del vector
     
     for _ in vectorbs:
@@ -26,14 +35,21 @@ def bubblesort(vectorbs):
                 vectorbs[j], vectorbs[j+1] = vectorbs[j+1], vectorbs[j]
             # Se intercambian si el elemento encontrado es mayor 
             # Luego pasa al siguiente
-    print ("El vector ordenado es: ", vectorbs)
+            
+    print ("El vector ordenado con bubble es: ", vectorbs)
+
+
 
 
 
 def selectionsort(vectorselect):
-    """Esta función ordenara el vector que le pases como argumento con el metodo Selection Sort"""
+    """Esta función ordenara el vector que le pases como argumento 
+    con el metodo Selection Sort"""
+    
     # Imprimimos la lista obtenida al principio (Desordenada)
-    print ("El vector a ordenar es: ",vectorselect)
+    
+    print("----------------------------------------------------------------------")
+    print ("El vector a ordenar con selección es:",vectorselect)
     
     largo = 0 # Establecemos un contador del largo
     
@@ -51,13 +67,16 @@ def selectionsort(vectorselect):
         # Cambiamos el elemento minimo encontrado con el primer elemento de la matriz
         vectorselect[i], vectorselect[minimo] = vectorselect[minimo], vectorselect[i]
         # Repetimos el proceso hasta terminar
-    print("El vector ordenado es: ",vectorselect)
+    print("El vector ordenado con selección es: ",vectorselect)
+
 
 def insertionsort(vectorins): 
-    """Esta función ordenara el vector que le pases como argumento con el metodo Insertion Sort"""
+    """Esta función ordenara el vector que le pases como argumento 
+    con el metodo Insertion Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
-    print("El vector a ordenar es: ", vectorins)
+    print("----------------------------------------------------------------------")
+    print("El vector a ordenar con inserción es:", vectorins)
     
     largo = 0 # Establecemos un contador del largo
      
@@ -75,13 +94,18 @@ def insertionsort(vectorins):
                 vectorins[j+1] = vectorins[j] 
                 j -= 1
         vectorins[j+1] = elemento 
-    print("El vector ordenado es: ", vectorins)
+    print("El vector ordenado con inserción es: ", vectorins)
+
+
+
 
 def shellsort(vectorshell):
     
-    """Esta función ordenara el vector que le pases como argumento con el metodo Shell Sort"""
+    """Esta función ordenara el vector que le pases como argumento 
+    con el metodo Shell Sort"""
     
-    print("El vector a ordenar es: ", vectorshell)
+    print("----------------------------------------------------------------------")
+    print("El vector a ordenar con shell es:", vectorshell)
     
     largo = 0
     
@@ -101,9 +125,172 @@ def shellsort(vectorshell):
                 j -= distancia
             vectorshell[j] = val
         distancia //= 2 # Acotamos la distancia nuevamente y continua el ciclo
-    print("El vector ordenado es: ", vectorshell)
+    print("El vector ordenado con shell es: ", vectorshell)
+
+
+
+def mergesort(vectormerge): 
+    """Esta función ordenara el vector que le pases como argumento 
+    con el metodo Merge Sort"""
+    
+    print("----------------------------------------------------------------------")
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con merge es:", vectormerge)
+    
+    def merge(vectormerge):
+    
+        def largo(vec):
+                largovec = 0 # Establecemos un contador del largovec
+                for _ in vec:
+                    largovec += 1 # Obtenemos el largo del vector
+                return largovec
+        
+        
+        if largo(vectormerge) >1: 
+            medio = largo(vectormerge)//2 # Buscamos el medio del vector
+            
+            # Lo dividimos en 2 partes 
+            izq = vectormerge[:medio]  
+            der = vectormerge[medio:]
+            
+            merge(izq) # Mismo procedimiento a la primer mitad
+            merge(der) # Mismo procedimiento a la segunda mitad
+            
+            i = j = k = 0
+            
+            # Copiamos los datos a los vectores temporales L[] y R[] 
+            while i < largo(izq) and j < largo(der): 
+                if izq[i] < der[j]: 
+                    vectormerge[k] = izq[i] 
+                    i+= 1
+                else: 
+                    vectormerge[k] = der[j] 
+                    j+= 1
+                k += 1
+            
+            # Nos fijamos si quedaron elementos en la lista
+            # tanto derecha como izquierda 
+            while i < largo(izq): 
+                vectormerge[k] = izq[i] 
+                i+= 1
+                k+= 1
+            
+            while j < largo(der): 
+                vectormerge[k] = der[j] 
+                j+= 1
+                k+= 1
+    merge(vectormerge)
+    print("El vector ordenado con merge es: ", vectormerge)
+    
+def quicksort(vectorquick, start = 0, end = len(vectorquick) - 1 ):
+    """Esta función ordenara el vector que le pases como argumento 
+    con el metodo Quick Sort"""
+    print("----------------------------------------------------------------------")
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con quick es:", vectorquick)
+    
+    def quick(vectorquick, start = 0, end = len(vectorquick) - 1):
+        
+        
+        if start >= end:
+            return
+
+        def particion(vectorquick, start = 0, end = len(vectorquick) - 1):
+            pivot = vectorquick[start]
+            menor = start + 1
+            mayor = end
+
+            while True:
+                # Si el valor actual es mayor que el pivot
+                # está en el lugar correcto (lado derecho del pivot) y podemos 
+                # movernos hacia la izquierda, al siguiente elemento.
+                # También debemos asegurarnos de no haber superado el puntero bajo, ya que indica 
+                # que ya hemos movido todos los elementos a su lado correcto del pivot
+                while menor <= mayor and vectorquick[mayor] >= pivot:
+                    mayor = mayor - 1
+
+                # Proceso opuesto al anterior            
+                while menor <= mayor and vectorquick[menor] <= pivot:
+                    menor = menor + 1
+
+                # Encontramos un valor sea mayor o menor y que este fuera del arreglo
+                # ó menor es más grande que mayor, en cuyo caso salimos del ciclo
+                if menor <= mayor:
+                    vectorquick[menor], vectorquick[mayor] = vectorquick[mayor], vectorquick[menor]
+                    # Continua el bucle
+                else:
+                    # Salimos del bucle
+                    break
+
+            vectorquick[start], vectorquick[mayor] = vectorquick[mayor], vectorquick[start]
+            
+            return mayor
+        
+        p = particion(vectorquick, start, end)
+        quick(vectorquick, start, p-1)
+        quick(vectorquick, p+1, end)
+        
+    quick(vectorquick)
+    print("El vector ordenado con quick es:", vectorquick)
+    
+def heapsort(vectorheap):
+    """Esta función ordenara el vector que le pases como argumento 
+    con el metodo Heap Sort"""
+    
+    print("----------------------------------------------------------------------")
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con heap es:", vectorheap)
+
+    largo = 0 # Establecemos un contador del largo
+        
+    for _ in vectorheap:
+        largo += 1 # Obtenemos el largo del vector
+
+    # Para amontonar la subparte a partir de i. 
+    # n es el tamaño del montón.
+    def amontonar(vectorheap, n, i): 
+        mas_largo = i # Tomamos i como el más grande 
+        izq = 2 * i + 1      
+        der = 2 * i + 2    
+    
+        
+        if izq < n and vectorheap[i] < vectorheap[izq]: 
+            mas_largo = izq 
+    
+        # Ver si existe la subparte de i correctamente y 
+        # si es mayor que i
+        if der < n and vectorheap[mas_largo] < vectorheap[der]: 
+            mas_largo = der 
+            
+    
+        if mas_largo != i: 
+            vectorheap[i],vectorheap[mas_largo] = vectorheap[mas_largo],vectorheap[i] # swap 
+            # Cambiar el origen, si es necesario
+            # amontonar el origen. 
+            amontonar(vectorheap, n, mas_largo)
+            
+    def heap(vectorheap):
+        
+        n = largo
+        # Crear un montón maximo 
+        for i in range(n//2 - 1, -1, -1): 
+            amontonar(vectorheap, n, i) 
+    
+        # Extraer elementos uno a uno
+        for i in range(n-1, 0, -1): 
+            vectorheap[i], vectorheap[0] = vectorheap[0], vectorheap[i] 
+            # Intercambio 
+            amontonar(vectorheap, i, 0)
+        
+    heap(vectorheap)
+    print("El vector ordenado con heap es:", vectorheap)
+    
+
 
 bubblesort(vectorbs)
 selectionsort(vectorselect)
 insertionsort(vectorins)
 shellsort(vectorshell)
+mergesort(vectormerge)
+quicksort(vectorquick)
+heapsort(vectorheap)

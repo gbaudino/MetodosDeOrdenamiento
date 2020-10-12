@@ -11,7 +11,8 @@ vectorshell = sample(lista,8)
 vectormerge = sample(lista,8)
 vectorquick = sample(lista,8)
 vectorheap = sample(lista,8)
-
+vectorcomb = sample(lista,8)
+vectorcocktail = sample(lista,8)
 
 
 def bubblesort(vectorbs):
@@ -158,7 +159,7 @@ def mergesort(vectormerge):
             
             i = j = k = 0
             
-            # Copiamos los datos a los vectores temporales L[] y R[] 
+            # Copiamos los datos a los vectores temporales izq[] y der[] 
             while i < largo(izq) and j < largo(der): 
                 if izq[i] < der[j]: 
                     vectormerge[k] = izq[i] 
@@ -264,7 +265,7 @@ def heapsort(vectorheap):
             
     
         if mas_largo != i: 
-            vectorheap[i],vectorheap[mas_largo] = vectorheap[mas_largo],vectorheap[i] # swap 
+            vectorheap[i],vectorheap[mas_largo] = vectorheap[mas_largo],vectorheap[i]
             # Cambiar el origen, si es necesario
             # amontonar el origen. 
             amontonar(vectorheap, n, mas_largo)
@@ -285,7 +286,79 @@ def heapsort(vectorheap):
     heap(vectorheap)
     print("El vector ordenado con heap es:", vectorheap)
     
+def combsort(vectorcomb):
+    """Esta función ordenara el vector que le pases como argumento
+    con el metodo de Comb Sort"""
+    
+    
+    print("----------------------------------------------------------------------")
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con comb es:",vectorcomb)
+    
+    largo = 0 # Establecemos un contador del largo del vector
+    
+    for _ in vectorcomb:
+        largo += 1
+    
+    
+    # Comenzamos con la diferencia o distancia igual al largo del vector
+    diferencia = largo
+    
+    # Establecemos la variable que define si es necesario o no
+    #  intercambiar los numeros que se están comparando
+    cambiar = True
+    
+    while diferencia > 1 or cambiar:
+        diferencia = max(1, int(diferencia / 1.25))  
+        # La diferencia minima es 1
+        # En cada iteración vamos bajando la diferencia
+        cambiar = False
+        for i in range(largo - diferencia):
+            j = i+diferencia 
+            # Ubicamos el número que está a la distancia x de i
+            if vectorcomb[i] > vectorcomb[j]:
+                vectorcomb[i], vectorcomb[j] = vectorcomb[j], vectorcomb[i]
+                # Hacemos el intercambio de los numeros
+                cambiar = True
+    
+    print("El vector ordenado con comb es: ",vectorcomb)
 
+def cocktailsort(vectorcocktail):
+    """Esta función ordenara el vector que le pases como argumento
+    con el metodo de Cocktail Sort"""
+    
+    print("----------------------------------------------------------------------")
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con cocktail es:",vectorcocktail)
+    
+    largo = 0 # Establecemos un contador del largo
+    
+    for _ in vectorcocktail:
+        largo += 1 # Obtenemos el largo del vector
+    
+    for i in range(largo//2): # Comenzamos desde la mitad aprox
+        cambiar = False 
+        # Declaramos la variable que inidica si es necesario intercambiar o no 
+        for j in range(1+i, largo-i):
+            # Probar si los dos elementos están en el orden incorrecto
+            if vectorcocktail[j] < vectorcocktail[j-1]:
+                # Entonces ambos elementos cambian de lugar
+                vectorcocktail[j], vectorcocktail[j-1] = vectorcocktail[j-1], vectorcocktail[j]
+                cambiar = True
+        # Si no ocurren cambios salimos del bucle
+        if not cambiar:
+            break
+        cambiar = False
+        for j in range(largo-i-1, i, -1):
+            # Probar si los dos elementos están en el orden incorrecto
+            if vectorcocktail[j] < vectorcocktail[j-1]:
+                # Entonces ambos elementos cambian de lugar
+                vectorcocktail[j], vectorcocktail[j-1] = vectorcocktail[j-1], vectorcocktail[j]
+                cambiar = True
+        if not cambiar:
+            break
+    print("El vector ordenado con cocktail es: ",vectorcocktail)
+    print("----------------------------------------------------------------------")
 
 bubblesort(vectorbs)
 selectionsort(vectorselect)
@@ -294,3 +367,5 @@ shellsort(vectorshell)
 mergesort(vectormerge)
 quicksort(vectorquick)
 heapsort(vectorheap)
+combsort(vectorcomb)
+cocktailsort(vectorcocktail)

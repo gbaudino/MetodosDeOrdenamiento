@@ -1,5 +1,5 @@
 ---
-title: "Metodos de Ordenamiento Simple"
+title: "Metodos de Ordenamiento"
 output:
   html_document:
     df_print: paged
@@ -11,7 +11,9 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-Los metodos de ordenamiento iterativo son aquellos que se realizan de forma que el codigo deba de repetirse una y otra vez hasta comprobar que ha sido ordenado por completo.
+Los metodos de ordenamiento son algoritmos que realizan la operación de arreglar los registros de una tabla en algún orden secuencial de acuerdo a un criterio de ordenamiento. El ordenamiento se efectúa con base en el valor de algún campo en un grupo de datos. El ordenamiento puede estar dado de forma iterativa o recursiva según la naturaleza y forma de ejecución del mismo.
+
+Estos son los ejemplos mas comunes de metodos de ordenamiento junto con sus características principales y su programación en Python:
 
 ### 1 - Metodo de Ordenamiento de la Burbuja (BubbleSort)
 El Ordenamiento de burbuja (BubbleSort) es un algoritmo de ordenamiento simple. El mismo funciona revisando cada elemento de la lista a ordenar con el que le sigue, cambiándolos de posición si están en un orden incorrecto (n>n+1). Es necesario repetir este proceso varias veces hasta que no se necesiten más cambios, lo que significa que la lista quedó ordenada. Un ejemplo de ordenamiento con bubblesort sería:
@@ -28,7 +30,7 @@ lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
 # Creamos una lista aleatoria con sample 
 #(8 elementos aleatorios de la lista base)
-vectorbs = sample(lista,5) 
+vectorbs = sample(lista,8) 
 
 
 def bubblesort(vectorbs):
@@ -71,7 +73,7 @@ lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
 # Creamos una lista aleatoria con sample 
 #(8 elementos aleatorios de la lista base)
-vectorselect = sample(lista,10) 
+vectorselect = sample(lista,8) 
 
 
 def selectionsort(vectorselect):
@@ -391,7 +393,7 @@ def heapsort(vectorheap):
             
     
         if mas_largo != i: 
-            vectorheap[i],vectorheap[mas_largo] = vectorheap[mas_largo],vectorheap[i] # swap 
+            vectorheap[i],vectorheap[mas_largo] = vectorheap[mas_largo],vectorheap[i] 
             # Cambiar el origen, si es necesario
             # amontonar el origen. 
             amontonar(vectorheap, n, mas_largo)
@@ -423,12 +425,55 @@ El metodo de ordenamiento del peine es una mejora del metodo de ordenamiento de 
 Y su código en Python 3 sería el siguiente:
 
 ```{python CombSort, echo=TRUE}
+from random import sample 
+# Importamos un metodo de la biblioteca random para generar listas aleatorias
 
+lista = list(range(100)) # Creamos la lista base con números del 1 al 100
+
+# Creamos una lista aleatoria con sample 
+#(8 elementos aleatorios de la lista base)
+vectorcomb = sample(lista,8)
+def combsort(vectorcomb):
+    """Esta función ordenara el vector que le pases como argumento
+    con el metodo de Comb Sort"""
+    
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con comb es:",vectorcomb)
+    
+    largo = 0 # Establecemos un contador del largo del vector
+    
+    for _ in vectorcomb:
+        largo += 1
+    
+    
+    # Comenzamos con la diferencia o distancia igual al largo del vector
+    diferencia = largo
+    
+    # Establecemos la variable que define si es necesario o no
+    #  intercambiar los numeros que se están comparando
+    cambiar = True
+    
+    while diferencia > 1 or cambiar:
+        diferencia = max(1, int(diferencia / 1.25))  
+        # La diferencia minima es 1
+        # En cada iteración vamos bajando la diferencia
+        cambiar = False
+        for i in range(largo - diferencia):
+            j = i+diferencia 
+            # Ubicamos el número que está a la distancia x de i
+            if vectorcomb[i] > vectorcomb[j]:
+                vectorcomb[i], vectorcomb[j] = vectorcomb[j], vectorcomb[i]
+                # Hacemos el intercambio de los numeros
+                cambiar = True
+    
+    print("El vector ordenado con comb es: ",vectorcomb)
+
+combsort(vectorcomb)
 ```
 
 
 
-### Metodo de Ordenamiento de la burbuja Bidireccional (CocktailSort)
+### 9 - Metodo de Ordenamiento de la burbuja Bidireccional (CocktailSort)
 El metodo de ordenamiento CocktailSort es una reforma del metodo de ordenamiento de la burbuja, con la diferencia que en este el ordenamiento se realiza en ambas direcciones, comprobando que el primero sin ordenar sea el menor y el ultimo sin ordenar sea el mayor y acomodando así en su respectivo lugar cada uno de los elementos. Aquí hay un ejemplo gráfico del metodo de ordenamiento:
 
 ![](./images/cocktailsort.gif)
@@ -436,7 +481,52 @@ El metodo de ordenamiento CocktailSort es una reforma del metodo de ordenamiento
 Y su código en Python 3 sería el siguiente:
 
 ```{python CocktailSort, echo=TRUE}
+from random import sample 
+# Importamos un metodo de la biblioteca random para generar listas aleatorias
 
+lista = list(range(100)) # Creamos la lista base con números del 1 al 100
+
+# Creamos una lista aleatoria con sample 
+#(8 elementos aleatorios de la lista base)
+vectorcocktail = sample(lista,8)
+
+
+def cocktailsort(vectorcocktail):
+    """Esta función ordenara el vector que le pases como argumento
+    con el metodo de Cocktail Sort"""
+    
+    # Imprimimos la lista obtenida al principio (Desordenada)
+    print("El vector a ordenar con cocktail es:",vectorcocktail)
+    
+    largo = 0 # Establecemos un contador del largo
+    
+    for _ in vectorcocktail:
+        largo += 1 # Obtenemos el largo del vector
+    
+    for i in range(largo//2): # Comenzamos desde la mitad aprox
+        cambiar = False 
+        # Declaramos la variable que inidica si es necesario intercambiar o no 
+        for j in range(1+i, largo-i):
+            # Probar si los dos elementos están en el orden incorrecto
+            if vectorcocktail[j] < vectorcocktail[j-1]:
+                # Entonces ambos elementos cambian de lugar
+                vectorcocktail[j], vectorcocktail[j-1] = vectorcocktail[j-1], vectorcocktail[j]
+                cambiar = True
+        # Si no ocurren cambios salimos del bucle
+        if not cambiar:
+            break
+        cambiar = False
+        for j in range(largo-i-1, i, -1):
+            # Probar si los dos elementos están en el orden incorrecto
+            if vectorcocktail[j] < vectorcocktail[j-1]:
+                # Entonces ambos elementos cambian de lugar
+                vectorcocktail[j], vectorcocktail[j-1] = vectorcocktail[j-1], vectorcocktail[j]
+                cambiar = True
+        if not cambiar:
+            break
+    print("El vector ordenado con cocktail es: ",vectorcocktail)
+
+cocktailsort(vectorcocktail)
 ```
 
 

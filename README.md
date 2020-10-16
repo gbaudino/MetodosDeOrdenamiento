@@ -58,8 +58,8 @@ def bubblesort(vectorbs):
 bubblesort(vectorbs)
 ```
 
-    ## ('El vector a ordenar es:', [17, 61, 99, 59, 58, 10, 81, 47])
-    ## ('El vector ordenado es: ', [10, 17, 47, 58, 59, 61, 81, 99])
+    ## ('El vector a ordenar es:', [33, 12, 0, 96, 40, 26, 89, 86])
+    ## ('El vector ordenado es: ', [0, 12, 26, 33, 40, 86, 89, 96])
 
 ### 2 - Metodo de Ordenamiento de Selección (SelectionSort)
 
@@ -110,8 +110,8 @@ def selectionsort(vectorselect):
 selectionsort(vectorselect)
 ```
 
-    ## ('El vector a ordenar es:', [78, 66, 33, 73, 95, 62, 93, 11])
-    ## ('El vector ordenado es: ', [11, 33, 62, 66, 73, 78, 93, 95])
+    ## ('El vector a ordenar es:', [30, 62, 91, 72, 84, 87, 6, 33])
+    ## ('El vector ordenado es: ', [6, 30, 33, 62, 72, 84, 87, 91])
 
 ### 3 - Metodo de Ordenamiento de Inserción (InsertionSort)
 
@@ -163,8 +163,8 @@ def insertionsort(vectorins):
 insertionsort(vectorins)
 ```
 
-    ## ('El vector a ordenar es:', [79, 33, 81, 16, 76, 4, 28, 74])
-    ## ('El vector ordenado es: ', [4, 16, 28, 33, 74, 76, 79, 81])
+    ## ('El vector a ordenar es:', [37, 35, 21, 91, 66, 29, 83, 51])
+    ## ('El vector ordenado es: ', [21, 29, 35, 37, 51, 66, 83, 91])
 
 ### 4 - Metodo de Ordenamiento Shell
 
@@ -221,8 +221,8 @@ shellsort(vectorshell)
     
 ```
 
-    ## ('El vector a ordenar con shell es:', [77, 40, 55, 34, 70, 72, 75, 17])
-    ## ('El vector ordenado con shell es: ', [17, 34, 40, 55, 70, 72, 75, 77])
+    ## ('El vector a ordenar con shell es:', [28, 60, 2, 0, 43, 1, 97, 9])
+    ## ('El vector ordenado con shell es: ', [0, 1, 2, 9, 28, 43, 60, 97])
 
 ### 5 - Metodo de Ordenamiento por mezcla (MergeSort)
 
@@ -302,8 +302,8 @@ def mergesort(vectormerge):
 mergesort(vectormerge)
 ```
 
-    ## ('El vector a ordenar con merge es:', [82, 55, 66, 5, 98, 68, 77, 94])
-    ## ('El vector ordenado con merge es: ', [5, 55, 66, 68, 77, 82, 94, 98])
+    ## ('El vector a ordenar con merge es:', [61, 8, 4, 6, 60, 40, 15, 49])
+    ## ('El vector ordenado con merge es: ', [4, 6, 8, 15, 40, 49, 60, 61])
 
 ### 6 - Metodo de ordenamiento rápido (QuickSort)
 
@@ -392,8 +392,8 @@ def quicksort(vectorquick, start = 0, end = len(vectorquick) - 1 ):
 quicksort(vectorquick)
 ```
 
-    ## ('El vector a ordenar con quick es:', [43, 39, 36, 86, 26, 17, 50, 56])
-    ## ('El vector ordenado con quick es:', [17, 26, 36, 39, 43, 50, 56, 86])
+    ## ('El vector a ordenar con quick es:', [65, 98, 63, 20, 51, 77, 85, 26])
+    ## ('El vector ordenado con quick es:', [20, 26, 51, 63, 65, 77, 85, 98])
 
 ### 7 - Metodo de ordenamiento del montón (HeapSort)
 
@@ -474,8 +474,8 @@ def heapsort(vectorheap):
 heapsort(vectorheap)
 ```
 
-    ## ('El vector a ordenar con heap es:', [27, 22, 57, 3, 5, 44, 77, 80])
-    ## ('El vector ordenado con heap es:', [3, 5, 22, 27, 44, 57, 77, 80])
+    ## ('El vector a ordenar con heap es:', [39, 61, 58, 74, 76, 53, 4, 25])
+    ## ('El vector ordenado con heap es:', [4, 25, 39, 53, 58, 61, 74, 76])
 
 ### 8 - Metodo de Ordenamiento del peine (CombSort)
 
@@ -540,8 +540,8 @@ def combsort(vectorcomb):
 combsort(vectorcomb)
 ```
 
-    ## ('El vector a ordenar con comb es:', [8, 45, 72, 41, 3, 61, 31, 91])
-    ## ('El vector ordenado con comb es: ', [3, 8, 31, 41, 45, 61, 72, 91])
+    ## ('El vector a ordenar con comb es:', [11, 0, 62, 70, 80, 99, 4, 12])
+    ## ('El vector ordenado con comb es: ', [0, 4, 11, 12, 62, 70, 80, 99])
 
 ### 9 - Metodo de Ordenamiento de la burbuja Bidireccional (CocktailSort)
 
@@ -605,8 +605,8 @@ def cocktailsort(vectorcocktail):
 cocktailsort(vectorcocktail)
 ```
 
-    ## ('El vector a ordenar con cocktail es:', [60, 22, 41, 47, 62, 16, 43, 7])
-    ## ('El vector ordenado con cocktail es: ', [7, 16, 22, 41, 43, 47, 60, 62])
+    ## ('El vector a ordenar con cocktail es:', [15, 33, 98, 72, 82, 97, 66, 35])
+    ## ('El vector ordenado con cocktail es: ', [15, 33, 35, 66, 72, 82, 97, 98])
 
 ## Comparación de distintos metodos de ordenamiento
 
@@ -643,6 +643,14 @@ Geremias Baudino
 [Kaggle](https://www.kaggle.com/geremiasbaudino)
 
 [Github](https://github.com/GBaudino)
+
+#### Otros proyectos de mi autoría
+
+[Las Matemáticas del Cubo de
+Rubik](https://www.notion.so/El-cubo-de-Rubik-y-su-matem-tica-891419faa9cd40a7a5e58bc6e24bcb03)
+
+[Introducción a
+NumPy](https://www.github.com/GBaudino/IntroduccionNumpy)
 
 #### Fuentes
 

@@ -1,9 +1,9 @@
 ---
 title: "Metodos de Ordenamiento"
 output:
+  github_document: default
   html_document:
     df_print: paged
-  github_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -11,11 +11,11 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-Los metodos de ordenamiento son algoritmos que realizan la operación de arreglar los registros de una tabla en algún orden secuencial de acuerdo a un criterio de ordenamiento. El ordenamiento se efectúa con base en el valor de algún campo en un grupo de datos. El ordenamiento puede estar dado de forma iterativa o recursiva según la naturaleza y forma de ejecución del mismo.
+Los métodos de ordenamiento son algoritmos que realizan la operación de arreglar los registros de una tabla en algún orden secuencial de acuerdo a un criterio de ordenamiento. El ordenamiento se efectúa con base en el valor de algún campo en un grupo de datos. El ordenamiento puede estar dado de forma iterativa o recursiva según la naturaleza y forma de ejecución del mismo.
 
-Estos son los ejemplos mas comunes de metodos de ordenamiento junto con sus características principales y su programación en Python:
+Estos son los ejemplos más comunes de métodos de ordenamiento junto con sus características principales y su programación en Python:
 
-### 1 - Metodo de Ordenamiento de la Burbuja (BubbleSort)
+### 1 - Método de Ordenamiento de la Burbuja (BubbleSort)
 El Ordenamiento de burbuja (BubbleSort) es un algoritmo de ordenamiento simple. El mismo funciona revisando cada elemento de la lista a ordenar con el que le sigue, cambiándolos de posición si están en un orden incorrecto (n>n+1). Es necesario repetir este proceso varias veces hasta que no se necesiten más cambios, lo que significa que la lista quedó ordenada. Un ejemplo de ordenamiento con bubblesort sería:
 
 ![](./images/bubble-sort.gif)
@@ -24,7 +24,7 @@ Su código en Python 3 sería el siguiente:
 
 ```{python BubbleSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -34,7 +34,7 @@ vectorbs = sample(lista,8)
 
 
 def bubblesort(vectorbs):
-    """Esta función ordenara el vector que le pases como argumento con el metodo de Bubble Sort"""
+    """Esta función ordenara el vector que le pases como argumento con el Método de Bubble Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar es:",vectorbs)
@@ -57,17 +57,17 @@ bubblesort(vectorbs)
 ```
 
 
-### 2 - Metodo de Ordenamiento de Selección (SelectionSort)
-El metodo de ordenamiento por selección consiste en buscar el menor entre todos los elementos no ordenados y colocarlo al principio, luego se debe repetir lo mismo con los restantes (no se tienen en cuenta los ya ordenados). Aquí una muestra más visual del metodo:
+### 2 - Método de Ordenamiento de Selección (SelectionSort)
+El Método de ordenamiento por selección consiste en buscar el menor entre todos los elementos no ordenados y colocarlo al principio, luego se debe repetir lo mismo con los restantes (no se tienen en cuenta los ya ordenados). Aquí una muestra más visual del Método:
 
 ![](./images/selection-sort-animation.gif)
 
-Y su código en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python SelectionSort, echo=TRUE}
 
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -77,7 +77,7 @@ vectorselect = sample(lista,8)
 
 
 def selectionsort(vectorselect):
-    """Esta función ordenara el vector que le pases como argumento con el metodo Selection Sort"""
+    """Esta función ordenara el vector que le pases como argumento con el Método Selection Sort"""
     # Imprimimos la lista obtenida al principio (Desordenada)
     print ("El vector a ordenar es:",vectorselect)
     
@@ -102,16 +102,16 @@ def selectionsort(vectorselect):
 selectionsort(vectorselect)
 ```
 
-### 3 - Metodo de Ordenamiento de Inserción (InsertionSort)
-El método de ordenamiento de inserción actua recorriendo la lista a ordenar, tomando el elemento actual e insertándolo donde debería comparandoló entre los que ya ha recorrido. Esta es una muestra mas clara del metodo de ordenamiento por Inserción:
+### 3 - Método de Ordenamiento de Inserción (InsertionSort)
+El método de ordenamiento de inserción actua recorriendo la lista a ordenar, tomando el elemento actual e insertándolo donde debería comparandoló entre los que ya ha recorrido. Esta es una muestra mas clara del Método de ordenamiento por Inserción:
 
 ![](./images/insertion-sort-example.gif)
 
-Y el código en Python 3 quedaría de la siguiente forma:
+Su código en Python 3 sería el siguiente:
 
 ```{python InsertionSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -121,10 +121,10 @@ vectorins = sample(lista,8)
 
 def insertionsort(vectorins): 
     """Esta función ordenara el vector que le pases como argumento con
-    el metodo Insertion Sort"""
+    el Método Insertion Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
-    print("El vector a ordenar es:", vectorins)
+    print("El vector a ordenar con inserción es:", vectorins)
     
     largo = 0 # Establecemos un contador del largo
      
@@ -143,22 +143,22 @@ def insertionsort(vectorins):
                 vectorins[j+1] = vectorins[j] 
                 j -= 1
         vectorins[j+1] = elemento 
-    print("El vector ordenado es: ", vectorins)
+    print("El vector ordenado con inserción es: ", vectorins)
 
 insertionsort(vectorins)
 
 ```
 
-### 4 - Metodo de Ordenamiento Shell
-El metodo de ordenamiento Shell es una mejora del metodo de Ordenamiento por inserción ya que el metodo de inserción es eficiente si la lista está **casi ordenada**, para ello el  metodo Shell  compara elementos separados por un espacio de varias posiciones, esto permite que un elemento haga "pasos más grandes" hacia su posición esperada, el mismo finaliza con un Ordenamiento por inserción simple. Aquí un ejemplo más grafico del ordenamiento Shell:
+### 4 - Método de Ordenamiento Shell
+El Método de ordenamiento Shell es una mejora del Método de Ordenamiento por inserción ya que el Método de inserción es eficiente si la lista está **casi ordenada**, para ello el  Método Shell  compara elementos separados por un espacio de varias posiciones, esto permite que un elemento haga "pasos más grandes" hacia su posición esperada, el mismo finaliza con un Ordenamiento por inserción simple. Aquí un ejemplo más gráfico del ordenamiento Shell:
 
 ![](./images/Sorting_shellsort.gif)
 
-Y su codigo en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python ShellSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -169,7 +169,7 @@ vectorshell = sample(lista,8)
 def shellsort(vectorshell):
     
     """Esta función ordenara el vector que le pases como argumento 
-    con el metodo Shell Sort"""
+    con el Método Shell Sort"""
     
     print("El vector a ordenar con shell es:", vectorshell)
     
@@ -198,16 +198,16 @@ shellsort(vectorshell)
 ```
 
 
-### 5 - Metodo de Ordenamiento por mezcla (MergeSort)
-El metodo de ordenamiento por mezcla tiene un funcionamiento muy particular, primero debemos saber que si la longitud de la lista es 0 ó 1 ya está ordenada, En otro caso: el algoritmo deberá dividir la lista desordenada en dos sublistas de aproximadamente la mitad del tamaño, luego ordenará cada sublista recursivamente aplicando el ordenamiento por mezcla y por ultimo mezcla las dos sublistas en una sola lista ordenada. Esta es una demostración gráfica del mismo:
+### 5 - Método de Ordenamiento por mezcla (MergeSort)
+El Método de ordenamiento por mezcla tiene un funcionamiento muy particular, primero debemos saber que si la longitud de la lista es 0 ó 1 ya está ordenada, En otro caso: el algoritmo deberá dividir la lista desordenada en dos sublistas de aproximadamente la mitad del tamaño, luego ordenará cada sublista recursivamente aplicando el ordenamiento por mezcla y por ultimo mezcla las dos sublistas en una sola lista ordenada. Esta es una demostración gráfica del mismo:
 
 ![](./images/Merge-sort.gif)
 
-Y su código en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python Merge Sort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -217,7 +217,7 @@ vectormerge = sample(lista,8)
 
 def mergesort(vectormerge): 
     """Esta función ordenara el vector que le pases como argumento 
-    con el metodo Merge Sort"""
+    con el Método Merge Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar con merge es:", vectormerge)
@@ -269,7 +269,7 @@ def mergesort(vectormerge):
 mergesort(vectormerge)
 ```
 
-### 6 - Metodo de ordenamiento rápido (QuickSort)
+### 6 - Método de ordenamiento rápido (QuickSort)
 Al igual que el ordenamiento por mezcla, el ordenamiento rápido es un algoritmo *divide y ganarás*, el mismo funciona seleccionando un elemento como pivot y dividiendo la matriz dada alrededor del pivot elegido. Hay muchas versiones diferentes de ordenamiento rápido que eligen pivotar de diferentes maneras.
 
   1. Elegir siempre el primer elemento como pivot.
@@ -281,11 +281,11 @@ El proceso llevado a cabo en el ordenamiento rápido es la partición, el objeti
 
 ![](./images/Sorting_quicksort.gif)
 
-Y su código en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python QuickSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -294,7 +294,7 @@ lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 vectorquick = sample(lista,8)
 def quicksort(vectorquick, start = 0, end = len(vectorquick) - 1 ):
     """Esta función ordenara el vector que le pases como argumento 
-    con el metodo Quick Sort"""
+    con el Método Quick Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar con quick es:", vectorquick)
@@ -346,16 +346,16 @@ def quicksort(vectorquick, start = 0, end = len(vectorquick) - 1 ):
 quicksort(vectorquick)
 ```
 
-### 7 - Metodo de ordenamiento del montón (HeapSort)
-El metodo de Ordenamiento del montón es similar a la clasificación por selección donde primero encontramos el elemento máximo y lo colocamos al final. Repetimos el mismo proceso para el resto de elementos. Pero en el metodo del montón debemos realizar previamente montones que son los que irán acomodandose con el algoritmo según cual es más grande de un lado o del otro del montón y al mismo tiempo, se irán eliminando y  acomodando los elementos mayores en la lista. Aquí hay un ejemplo gráfico del proceso:
+### 7 - Método de ordenamiento del montón (HeapSort)
+El Método de Ordenamiento del montón es similar a la clasificación por selección donde primero encontramos el elemento máximo y lo colocamos al final. Repetimos el mismo proceso para el resto de elementos. Pero en el Método del montón debemos realizar previamente montones que son los que irán acomodandose con el algoritmo según cual es más grande de un lado o del otro del montón y al mismo tiempo, se irán eliminando y  acomodando los elementos mayores en la lista. Aquí hay un ejemplo gráfico del proceso:
 
 ![](./images/heapsort.gif)
 
-Y su código en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python HeapSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -365,7 +365,7 @@ vectorheap = sample(lista,8)
 
 def heapsort(vectorheap):
     """Esta función ordenara el vector que le pases como argumento 
-    con el metodo Heap Sort"""
+    con el Método Heap Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar con heap es:", vectorheap)
@@ -417,16 +417,16 @@ def heapsort(vectorheap):
 heapsort(vectorheap)
 ```
 
-### 8 - Metodo de Ordenamiento del peine (CombSort)
-El metodo de ordenamiento del peine es una mejora del metodo de ordenamiento de la burbuja, ya que en el metodo de la burbuja siempre se comparan valores consecutivos, entonces todos los cambios se realizan uno por uno. El metodo del peine (CombSort) mejora al BubbleSort usando un espacio de tamaño superior a 1. El espacio comienza con un valor grande y se reduce en un factor x en cada iteración hasta que alcanza el valor 1. Por lo tanto este elimina más de una inversión con un intercambio y funciona mejor que el metodo de la burbuja. Aquí hay una demostración gráfica del proceso de ordenamiento:
+### 8 - Método de Ordenamiento del peine (CombSort)
+El Método de ordenamiento del peine es una mejora del Método de ordenamiento de la burbuja, ya que en el Método de la burbuja siempre se comparan valores consecutivos, entonces todos los cambios se realizan uno por uno. El Método del peine (CombSort) mejora al BubbleSort usando un espacio de tamaño superior a 1. El espacio comienza con un valor grande y se reduce en un factor x en cada iteración hasta que alcanza el valor 1. Por lo tanto este elimina más de una inversión con un intercambio y funciona mejor que el Método de la burbuja. Aquí hay una demostración gráfica del proceso de ordenamiento:
 
 ![](./images/Comb_sort.gif)
 
-Y su código en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python CombSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -435,7 +435,7 @@ lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 vectorcomb = sample(lista,8)
 def combsort(vectorcomb):
     """Esta función ordenara el vector que le pases como argumento
-    con el metodo de Comb Sort"""
+    con el Método de Comb Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar con comb es:",vectorcomb)
@@ -473,16 +473,16 @@ combsort(vectorcomb)
 
 
 
-### 9 - Metodo de Ordenamiento de la burbuja Bidireccional (CocktailSort)
-El metodo de ordenamiento CocktailSort es una reforma del metodo de ordenamiento de la burbuja, con la diferencia que en este el ordenamiento se realiza en ambas direcciones, comprobando que el primero sin ordenar sea el menor y el ultimo sin ordenar sea el mayor y acomodando así en su respectivo lugar cada uno de los elementos. Aquí hay un ejemplo gráfico del metodo de ordenamiento:
+### 9 - Método de Ordenamiento de la burbuja Bidireccional (CocktailSort)
+El Método de ordenamiento CocktailSort es una reforma del Método de ordenamiento de la burbuja, con la diferencia que en este el ordenamiento se realiza en ambas direcciones, comprobando que el primero sin ordenar sea el menor y el ultimo sin ordenar sea el mayor y acomodando así en su respectivo lugar cada uno de los elementos. Aquí hay un ejemplo gráfico del Método de ordenamiento:
 
 ![](./images/cocktailsort.gif)
 
-Y su código en Python 3 sería el siguiente:
+Su código en Python 3 sería el siguiente:
 
 ```{python CocktailSort, echo=TRUE}
 from random import sample 
-# Importamos un metodo de la biblioteca random para generar listas aleatorias
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
 lista = list(range(100)) # Creamos la lista base con números del 1 al 100
 
@@ -493,7 +493,7 @@ vectorcocktail = sample(lista,8)
 
 def cocktailsort(vectorcocktail):
     """Esta función ordenara el vector que le pases como argumento
-    con el metodo de Cocktail Sort"""
+    con el Método de Cocktail Sort"""
     
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar con cocktail es:",vectorcocktail)
@@ -532,12 +532,12 @@ cocktailsort(vectorcocktail)
 
 ## Comparación de distintos metodos de ordenamiento
 ### Comparación según la cantidad de tiempo de demora
-La grafica demuestra cuanto tardan (en segundos) distintos tipos de ordenamiento al variar la cantidad de elementos que contiene la lista a ordenar. Siendo las maquinas a comparar: 
+La gráfica demuestra cuanto tardan (en segundos) distintos tipos de ordenamiento al variar la cantidad de elementos que contiene la lista a ordenar. Siendo las máquinas a comparar: 
 
 M1 = Máquina 1 (1 nucleo, 1GB de RAM)
 M2 = Máquina 2 (2 nucleos, 2GB de RAM)
 
-Tenemos el siguiente grafico:
+Tenemos el siguiente gráfico:
 
 
 ![](./images/allAlgorithms_M1_M2.png)

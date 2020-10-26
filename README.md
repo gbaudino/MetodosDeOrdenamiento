@@ -1,4 +1,4 @@
-Metodos de Ordenamiento
+Métodos de Ordenamiento
 ================
 
 Los métodos de ordenamiento son algoritmos que realizan la operación de

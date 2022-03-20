@@ -634,7 +634,7 @@ siguiente tabla y gráfico:
 
 ![](./images/MetodosdeOrdenamiento.png)
 
-#### Autor
+#### Mis Redes
 
 Geremias Baudino
 
@@ -644,7 +644,7 @@ Geremias Baudino
 
 [Github](https://github.com/GBaudino)
 
-#### Otros proyectos de mi autoría
+#### Otros proyectos
 
 [Las Matemáticas del Cubo de
 Rubik](https://www.notion.so/El-cubo-de-Rubik-y-su-matem-tica-891419faa9cd40a7a5e58bc6e24bcb03)

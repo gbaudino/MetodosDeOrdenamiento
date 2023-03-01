@@ -640,17 +640,8 @@ Geremias Baudino
 
 [Linkedin](https://www.linkedin.com/in/geremiasbaudino/)
 
-[Kaggle](https://www.kaggle.com/geremiasbaudino)
-
 [Github](https://github.com/GBaudino)
 
-#### Otros proyectos
-
-[Las Matemáticas del Cubo de
-Rubik](https://www.notion.so/El-cubo-de-Rubik-y-su-matem-tica-891419faa9cd40a7a5e58bc6e24bcb03)
-
-[Introducción a
-NumPy](https://www.github.com/GBaudino/IntroduccionNumpy)
 
 #### Fuentes
 

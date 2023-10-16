@@ -255,17 +255,10 @@ def mergesort(vectormerge):
     # Imprimimos la lista obtenida al principio (Desordenada)
     print("El vector a ordenar con merge es:", vectormerge)
     
-    def merge(vectormerge):
-    
-        def largo(vec):
-                largovec = 0 # Establecemos un contador del largovec
-                for _ in vec:
-                    largovec += 1 # Obtenemos el largo del vector
-                return largovec
+    def merge(vectormerge):       
         
-        
-        if largo(vectormerge) >1: 
-            medio = largo(vectormerge)//2 # Buscamos el medio del vector
+        if len(vectormerge) >1: 
+            medio = len(vectormerge)//2 # Buscamos el medio del vector
             
             # Lo dividimos en 2 partes 
             izq = vectormerge[:medio]  
@@ -277,7 +270,7 @@ def mergesort(vectormerge):
             i = j = k = 0
             
             # Copiamos los datos a los vectores temporales izq[] y der[] 
-            while i < largo(izq) and j < largo(der): 
+            while i < len(izq) and j < len(der): 
                 if izq[i] < der[j]: 
                     vectormerge[k] = izq[i] 
                     i+= 1
@@ -288,12 +281,12 @@ def mergesort(vectormerge):
             
             # Nos fijamos si quedaron elementos en la lista
             # tanto derecha como izquierda 
-            while i < largo(izq): 
+            while i < len(izq): 
                 vectormerge[k] = izq[i] 
                 i+= 1
                 k+= 1
             
-            while j < largo(der): 
+            while j < len(der): 
                 vectormerge[k] = der[j] 
                 j+= 1
                 k+= 1
